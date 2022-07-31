@@ -123,6 +123,9 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-mail,
@@ -149,10 +152,7 @@ img {
 }
 
 .top-nav-link:hover,
-.top-nav-link:focus {
-  color: var(--acent-color);
-}
-
+.top-nav-link:focus,
 .top-mail:hover,
 .top-mail:focus,
 .top-tel:hover,
@@ -215,6 +215,9 @@ img {
   letter-spacing: 0.06em;
   cursor: pointer;
   border: transparent;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -369,6 +372,9 @@ img {
   height: 44px;
   width: 44px;
   border-radius: 50%;
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .worker-soc-icon,
@@ -426,6 +432,9 @@ img {
   letter-spacing: 0.03em;
   cursor: pointer;
   border: transparent;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
@@ -463,6 +472,9 @@ img {
 .card-link {
   display: block;
   text-decoration: none;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-link:hover,
@@ -484,6 +496,8 @@ img {
   padding: 63px 24px;
   background-color: var(--card-overlay-color);
   transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
 }
 .card-content {
   color: var(--card-content-color);
@@ -536,6 +550,9 @@ img {
   line-height: 1.7;
   letter-spacing: 0.03em;
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bottom-adr {
@@ -591,6 +608,7 @@ img {
 }
 
 .backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
