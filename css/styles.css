@@ -97,7 +97,7 @@ img {
   color: var(--h-text-color);
 }
 
-.top-nav-link::after {
+.top-nav-link.current::after {
   content: '';
   position: absolute;
   left: 0;
@@ -106,11 +106,6 @@ img {
   height: 4px;
   background-color: var(--acent-color);
   border-radius: 2px;
-  opacity: 0;
-}
-
-.current.top-nav-link::after {
-  opacity: 1;
 }
 
 .top-nav-link,
@@ -506,7 +501,8 @@ img {
   letter-spacing: 0.03em;
 }
 
-.card-link:hover .card-overlay {
+.card-link:hover .card-overlay,
+.card-link:focus .card-overlay {
   transform: translateY(0);
 }
 
