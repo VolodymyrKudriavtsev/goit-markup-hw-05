@@ -13,6 +13,8 @@
   --icon-main-fill: #afb1b8;
   --card-overlay-color: rgba(33, 150, 243, 0.9);
   --card-content-color: #ffffff;
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -120,9 +122,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .top-mail,
@@ -212,9 +212,7 @@ img {
   letter-spacing: 0.06em;
   cursor: pointer;
   border: transparent;
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .hero-btn:hover,
@@ -369,9 +367,8 @@ img {
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  transition-property: color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-duration) var(--transition-timing-function),
+    background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .worker-soc-icon,
@@ -430,8 +427,8 @@ img {
   cursor: pointer;
   border: transparent;
   transition-property: color, background-color, box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .filter-btn:hover,
@@ -469,9 +466,7 @@ img {
 .card-link {
   display: block;
   text-decoration: none;
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 .card-link:hover,
@@ -484,6 +479,7 @@ img {
   position: relative;
   overflow: hidden;
 }
+
 .card-overlay {
   position: absolute;
   top: 0;
@@ -491,16 +487,17 @@ img {
   width: 100%;
   height: 100%;
   padding: 63px 24px;
-  background-color: var(--card-overlay-color);
-  transform: translateY(100%);
-  transition-property: transform;
-  transition-duration: 250ms;
-}
-.card-content {
+
   color: var(--card-content-color);
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
+
+  background-color: var(--card-overlay-color);
+
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
 }
 
 .card-link:hover .card-overlay,
@@ -548,9 +545,7 @@ img {
   line-height: 1.7;
   letter-spacing: 0.03em;
   text-decoration: none;
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .bottom-adr {
@@ -603,25 +598,27 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;  
+  transition-property: transform, opacity, visibility;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .backdrop.is-hidden {
-  visibility: hidden;
+  transform: scale(0.5);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-
-  /* transform: scale(50%);
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 528px;
+  width: 528px;
   min-height: 581px;
 
   background: var(--bgc-white);
@@ -629,10 +626,21 @@ img {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  /* transform: scale(50%);
+  /* transform: translate(-50%, -50%) scale(1); */
+  transform: translate(-50%, -50%) rotateY(0);
+  opacity: 1;
+  /* transition-property: transform, opacity; */
   transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+  /* transition-duration: var(--transition-duration); */
+  transition-duration: 2000ms;
+  transition-timing-function: var(--transition-timing-function);
+  transition-delay: 250ms;
+}
+
+.backdrop.is-hidden .modal {
+  /* transform: translate(-50%, -50%) scale(0.5) rotate(90deg); */
+  transform: translate(-50%, -50%) rotateY(180deg);
+  opacity: 0;
 }
 
 .btn-close {
