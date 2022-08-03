@@ -291,18 +291,16 @@ img {
   width: calc((100% - 60px) / 3);
 }
 
-.work-direction-wrap {
+.work-direction {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   padding-top: 27px;
   padding-bottom: 27px;
-  background-color: rgba(47, 48, 58, 0.8);
-}
-
-.work-direction {
   margin-bottom: 0;
+
+  background-color: rgba(47, 48, 58, 0.8);
   text-align: center;
   color: var(--white-text-color);
 }
@@ -605,6 +603,7 @@ img {
   transition-property: transform, opacity, visibility;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
+  perspective: 800px;
 }
 
 .backdrop.is-hidden {
@@ -626,20 +625,16 @@ img {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  /* transform: translate(-50%, -50%) scale(1); */
-  transform: translate(-50%, -50%) rotateY(0);
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
-  /* transition-property: transform, opacity; */
-  transition-property: transform;
-  /* transition-duration: var(--transition-duration); */
-  transition-duration: 2000ms;
+  transition-property: transform, opacity;  
+  transition-duration: var(--transition-duration);  
   transition-timing-function: var(--transition-timing-function);
-  transition-delay: 250ms;
+  transition-delay: var(--transition-duration);
 }
 
 .backdrop.is-hidden .modal {
-  /* transform: translate(-50%, -50%) scale(0.5) rotate(90deg); */
-  transform: translate(-50%, -50%) rotateY(180deg);
+  transform: translate(-50%, -50%) scale(0.5) rotate(90deg);  
   opacity: 0;
 }
 
